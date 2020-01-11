@@ -45,5 +45,10 @@
   "private": true,
   "eslintConfig": {
     "extends": "universe/native"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
   }
 }
