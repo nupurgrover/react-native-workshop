@@ -1,13 +1,16 @@
-import { AppLoading } from 'expo';
-import { Asset } from 'expo-asset';
 import * as Font from 'expo-font';
-import React, { useState } from 'react';
+
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import React, { useState } from 'react';
 
+import { AppLoading } from 'expo';
 import AppNavigator from './navigation/AppNavigator';
+import { Asset } from 'expo-asset';
+import { Ionicons } from '@expo/vector-icons';
+import { Provider } from 'react-redux';
+import store from './redux/store';
 
-export default function App(props) {
+function App(props) {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
 
   if (!isLoadingComplete && !props.skipLoadingScreen) {
@@ -60,3 +63,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
 });
+
+export default function(props) {
+  return (
+    <Provider store={store}>
+      <App {...props} />
+    </Provider>
+  );
+}
