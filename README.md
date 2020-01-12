@@ -27,6 +27,8 @@ Here are the hints:
 
 [TouchableHighlight](https://docs.expo.io/versions/v36.0.0/react-native/touchablehighlight/) can be used to provide an onPress handler around a group of components
 
+[Alert](https://docs.expo.io/versions/v36.0.0/react-native/alert/) is an API you can use to show the event date in response to the onPress
+
 In this case, Text has an onPress prop, but Image doesn't, so let's wrap them both and delegate the functionality to TouchableHighlight.
 
 FlatList will replace ScrollView, and we'll use FlatList's `onRefresh` and `refreshing` props to provide `Pull to Refresh` functionality.
