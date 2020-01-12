@@ -12,7 +12,7 @@ Render a list of events with an image and event name title from the available pr
 
 When complete:
 - a loading state should be displayed if no events have loaded
-- the user should be able to pull to refresh to update the event list
+- the user should be able to pull to refresh to update the event list.  The loaded events should remain visible.
 - the user should be able to press on each event to get an alert with the event date
 
 Here are the hints:
