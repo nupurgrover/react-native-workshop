@@ -18,9 +18,13 @@ When complete:
 Here are the hints:
 
 [FlatList](https://docs.expo.io/versions/v36.0.0/react-native/flatlist/) is a good choice to render the items, for reasons summarised in the [ScrollView](https://docs.expo.io/versions/v36.0.0/react-native/scrollview/) documentation
+
 [View](https://docs.expo.io/versions/v36.0.0/react-native/view/) is the equivalent of a `div` or `span`.  Many elements need to be wrapped in one to work
+
 [Image](https://docs.expo.io/versions/v36.0.0/react-native/image/) is self-explanatory
-[Text](https://docs.expo.io/versions/v36.0.0/react-native/text/) a wrapper for text
+
+[Text](https://docs.expo.io/versions/v36.0.0/react-native/text/) is a wrapper for text
+
 [TouchableHighlight](https://docs.expo.io/versions/v36.0.0/react-native/touchablehighlight/) can be used to provide an onPress handler around a group of components
 
 In this case, Text has an onPress prop, but Image doesn't, so let's wrap them both and delegate the functionality to TouchableHighlight.
