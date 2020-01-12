@@ -1,12 +1,11 @@
-import React from 'react';
-import { Platform } from 'react-native';
-import { createStackNavigator } from 'react-navigation-stack';
-import { createBottomTabNavigator } from 'react-navigation-tabs';
-
-import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
+import { Platform } from 'react-native';
+import React from 'react';
 import SettingsScreen from '../screens/SettingsScreen';
+import TabBarIcon from '../components/TabBarIcon';
+import { createBottomTabNavigator } from 'react-navigation-tabs';
+import { createStackNavigator } from 'react-navigation-stack';
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
