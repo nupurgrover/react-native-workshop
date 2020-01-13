@@ -12,6 +12,7 @@ import { withNavigation } from 'react-navigation';
 class Event extends Component {
   render() {
     const { event } = this.props;
+    const checkoutUrl = `https://checkout.ticketarena.co.uk${event.url.split('co.uk')[1]}`;
     return (
       <ScrollView style={styles.container}>
         <View>
