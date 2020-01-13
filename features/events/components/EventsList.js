@@ -4,15 +4,16 @@ import { selectEvents, selectEventsLoading, selectEventsRefreshing } from '../se
 
 import { connect } from 'react-redux';
 import { loadEvents } from '../actions';
+import { withNavigation } from 'react-navigation';
 
-const EventsListItem = ({ event }) => (
-  <TouchableHighlight onPress={() => Alert.alert(`${event.title} is on`, event.date)}>
+const EventsListItem = withNavigation(({ event, navigation }) => (
+  <TouchableHighlight onPress={() => navigation.navigate('Links')}>
     <View>
       <Image style={{ width: 100, height: 50 }} source={{ uri: event.image }} />
       <Text>{event.title}</Text>
     </View>
   </TouchableHighlight>
-);
+));
 
 class EventsList extends Component {
   componentDidMount() {
