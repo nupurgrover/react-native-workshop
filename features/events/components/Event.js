@@ -18,9 +18,7 @@ class Event extends Component {
           <Image
             style={styles.image}
             source={{
-              uri: `${FileSystem.documentDirectory}${event.id}.${
-                event.image.split('.').reverse()[0]
-              }`,
+              uri: `${FileSystem.documentDirectory}${event.image.split('/').reverse()[0]}`,
             }}
           />
           <Text style={styles.title}>{event.title}</Text>
