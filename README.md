@@ -8,4 +8,4 @@
 
 ## Caching Demo
 
-Quick and dirty demo of caching images usnig [expo-file-system](https://docs.expo.io/versions/v36.0.0/sdk/filesystem/#filesystemdocumentdirectory)
+Quick and dirty demo of caching images usnig [expo-file-system](https://docs.expo.io/versions/v36.0.0/sdk/filesystem)
