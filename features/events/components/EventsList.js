@@ -5,6 +5,15 @@ import { selectEvents, selectEventsLoading, selectEventsRefreshing } from '../se
 import { connect } from 'react-redux';
 import { loadEvents } from '../actions';
 
+const EventsListItem = ({ event }) => (
+  <TouchableHighlight onPress={() => Alert.alert(`${event.title} is on`, event.date)}>
+    <View>
+      <Image style={{ width: 100, height: 50 }} source={{ uri: event.image }} />
+      <Text>{event.title}</Text>
+    </View>
+  </TouchableHighlight>
+);
+
 class EventsList extends Component {
   componentDidMount() {
     this.props.loadEvents();
@@ -18,14 +27,7 @@ class EventsList extends Component {
       <FlatList
         data={this.props.events}
         keyExtractor={item => item.id}
-        renderItem={({ item }) => (
-          <TouchableHighlight onPress={() => Alert.alert(`${item.title} is on`, item.date)}>
-            <View>
-              <Image style={{ width: 100, height: 50 }} source={{ uri: item.image }} />
-              <Text>{item.title}</Text>
-            </View>
-          </TouchableHighlight>
-        )}
+        renderItem={({ item }) => <EventsListItem event={item} />}
         onRefresh={this.props.loadEvents}
         refreshing={this.props.refreshing}
         style={styles.container}
