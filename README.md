@@ -6,6 +6,8 @@
 
 [React Navigation docs](https://reactnavigation.org/docs/en/getting-started.html)
 
-## Caching Demo
+## Your Task
 
-Quick and dirty demo of caching images usnig [expo-file-system](https://docs.expo.io/versions/v36.0.0/sdk/filesystem)
+We've built almost the best app the world has ever seen, however, when a user goes to an event screen, we want to take over the whole viewport so the user is more focussed on buying tickets.
+
+Make it so the event screen doesn't have the main tabs at the bottom of the screen.
