@@ -1,7 +1,8 @@
-import { Alert, FlatList, Image, StyleSheet, Text, TouchableHighlight, View } from 'react-native';
+import { Alert, Image, StyleSheet, Text, TouchableHighlight, View } from 'react-native';
 import React, { Component } from 'react';
 import { selectEvents, selectEventsLoading, selectEventsRefreshing } from '../selectors';
 
+import { FlatList } from 'react-navigation';
 import { connect } from 'react-redux';
 import { loadEvents } from '../actions';
 
