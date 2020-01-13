@@ -23,9 +23,6 @@ const EventsListItem = withNavigation(({ event, navigation }) => (
 ));
 
 class EventsList extends Component {
-  componentDidMount() {
-    this.props.loadEvents();
-  }
   render() {
     if (this.props.loading && !this.props.refreshing) {
       return <Text>Loading</Text>;

@@ -8,15 +8,17 @@ import AppNavigator from './navigation/AppNavigator';
 import { Asset } from 'expo-asset';
 import { Ionicons } from '@expo/vector-icons';
 import { Provider } from 'react-redux';
+import { connect } from 'react-redux';
+import { loadEvents } from './features/events/actions';
 import store from './redux/store';
 
-function App(props) {
+let App = props => {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
 
   if (!isLoadingComplete && !props.skipLoadingScreen) {
     return (
       <AppLoading
-        startAsync={loadResourcesAsync}
+        startAsync={() => loadResourcesAsync([props.loadEvents])}
         onError={handleLoadingError}
         onFinish={() => handleFinishLoading(setLoadingComplete)}
       />
@@ -29,10 +31,12 @@ function App(props) {
       </View>
     );
   }
-}
+};
+App = connect(null, { loadEvents })(App);
 
-async function loadResourcesAsync() {
+async function loadResourcesAsync(promises) {
   await Promise.all([
+    ...promises.map(p => p()),
     Asset.loadAsync([
       require('./assets/images/robot-dev.png'),
       require('./assets/images/robot-prod.png'),
