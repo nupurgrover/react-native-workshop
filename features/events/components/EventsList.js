@@ -1,11 +1,10 @@
-import { Alert, Image, StyleSheet, Text, TouchableHighlight, View } from 'react-native';
+import { FlatList, withNavigation } from 'react-navigation';
+import { Image, StyleSheet, Text, TouchableHighlight, View } from 'react-native';
 import React, { Component } from 'react';
 import { selectEvents, selectEventsLoading, selectEventsRefreshing } from '../selectors';
 
-import { FlatList } from 'react-navigation';
 import { connect } from 'react-redux';
 import { loadEvents } from '../actions';
-import { withNavigation } from 'react-navigation';
 
 const EventsListItem = withNavigation(({ event, navigation }) => (
   <TouchableHighlight onPress={() => navigation.push('Event', { id: event.id })}>
@@ -21,14 +20,13 @@ class EventsList extends Component {
     this.props.loadEvents();
   }
   render() {
-    console.log(this.props);
     if (this.props.loading && !this.props.refreshing) {
       return <Text>Loading</Text>;
     }
     return (
       <FlatList
         data={this.props.events}
-        keyExtractor={item => item.id}
+        keyExtractor={item => item.id.toString()}
         renderItem={({ item }) => <EventsListItem event={item} />}
         onRefresh={this.props.loadEvents}
         refreshing={this.props.refreshing}
