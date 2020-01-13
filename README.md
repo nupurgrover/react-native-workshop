@@ -8,6 +8,7 @@
 
 ## Your Task
 
-We've built almost the best app the world has ever seen, however, when a user goes to an event screen, we want to take over the whole viewport so the user is more focussed on buying tickets.
+Add a couple of [buttons](https://docs.expo.io/versions/v36.0.0/react-native/button/) to the event screen.
 
-Make it so the event screen doesn't have the main tabs at the bottom of the screen.
+- a button that opens a [WebBrowser](https://docs.expo.io/versions/v36.0.0/sdk/webbrowser/) and takes you to the checkout.  The checkout url is saved as a variable in the component.
+- a button that makes your device [vibrate](https://docs.expo.io/versions/v36.0.0/react-native/vibration/) for 0.5s
