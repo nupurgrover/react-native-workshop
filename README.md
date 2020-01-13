@@ -8,7 +8,6 @@
 
 ## Your Task
 
-Add a couple of [buttons](https://docs.expo.io/versions/v36.0.0/react-native/button/) to the event screen.
+I've added a splash screen, as defined in app.json.  Once it clears, you then have to wait for the events to load.  However, App.js uses [AppLoading](https://docs.expo.io/versions/v36.0.0/sdk/app-loading/) which can keep the splash screen visible until we're ready, so...
 
-- a button that opens a [WebBrowser](https://docs.expo.io/versions/v36.0.0/sdk/webbrowser/) and takes you to the checkout.  The checkout url is saved as a variable in the component.
-- a button that makes your device [vibrate](https://docs.expo.io/versions/v36.0.0/react-native/vibration/) for 0.5s
+- we're going to move the call to dispatch the loadEvents action from EventsList's componentDidMount to App.js so the app is ready to display its content when the splash screen disappears
