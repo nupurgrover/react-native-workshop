@@ -1,13 +1,13 @@
-import { StyleSheet, View } from 'react-native';
+import { SafeAreaView, StyleSheet } from 'react-native';
 
 import EventsList from '../features/events/components/EventsList';
 import React from 'react';
 
 export default function HomeScreen() {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <EventsList />
-    </View>
+    </SafeAreaView>
   );
 }
 

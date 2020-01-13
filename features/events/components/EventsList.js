@@ -1,5 +1,5 @@
+import { Alert, FlatList, Image, StyleSheet, Text, TouchableHighlight, View } from 'react-native';
 import React, { Component } from 'react';
-import { ScrollView, StyleSheet, Text } from 'react-native';
 import { selectEvents, selectEventsLoading, selectEventsRefreshing } from '../selectors';
 
 import { connect } from 'react-redux';
@@ -11,78 +11,27 @@ class EventsList extends Component {
   }
   render() {
     console.log(this.props);
+    if (this.props.loading && !this.props.refreshing) {
+      return <Text>Loading</Text>;
+    }
     return (
-      <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+      <FlatList
+        data={this.props.events}
+        keyExtractor={item => item.id}
+        renderItem={({ item }) => (
+          <TouchableHighlight onPress={() => Alert.alert(`${item.title} is on`, item.date)}>
+            <View>
+              <Image style={{ width: 100, height: 50 }} source={{ uri: item.image }} />
+              <Text>{item.title}</Text>
+            </View>
+          </TouchableHighlight>
+        )}
+        onRefresh={this.props.loadEvents}
+        refreshing={this.props.refreshing}
+        style={styles.container}
+      >
         <Text>First</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>Last</Text>
-      </ScrollView>
+      </FlatList>
     );
   }
 }
@@ -99,8 +48,5 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-  },
-  contentContainer: {
-    paddingTop: 30,
   },
 });
