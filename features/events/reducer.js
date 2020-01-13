@@ -5,6 +5,7 @@ const INITIAL_STATE = {
 
 export default function(state = INITIAL_STATE, action = {}) {
   const { type, payload } = action;
+  console.log(type);
   switch (type) {
     case 'LOAD_EVENTS_REQUEST': {
       return { ...state, loading: state.loading + 1 };

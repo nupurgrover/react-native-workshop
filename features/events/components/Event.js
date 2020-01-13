@@ -1,3 +1,5 @@
+import * as FileSystem from 'expo-file-system';
+
 import { Image, ScrollView, StyleSheet, Text, View } from 'react-native';
 import React, { Component } from 'react';
 
@@ -13,7 +15,14 @@ class Event extends Component {
     return (
       <ScrollView style={styles.container}>
         <View>
-          <Image style={styles.image} source={{ uri: event.image }} />
+          <Image
+            style={styles.image}
+            source={{
+              uri: `${FileSystem.documentDirectory}${event.id}.${
+                event.image.split('.').reverse()[0]
+              }`,
+            }}
+          />
           <Text style={styles.title}>{event.title}</Text>
         </View>
         <WebView

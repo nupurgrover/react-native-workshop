@@ -1,3 +1,5 @@
+import * as FileSystem from 'expo-file-system';
+
 import { FlatList, withNavigation } from 'react-navigation';
 import { Image, StyleSheet, Text, TouchableHighlight, View } from 'react-native';
 import React, { Component } from 'react';
@@ -9,7 +11,12 @@ import { loadEvents } from '../actions';
 const EventsListItem = withNavigation(({ event, navigation }) => (
   <TouchableHighlight onPress={() => navigation.push('Event', { id: event.id })}>
     <View>
-      <Image style={{ width: 100, height: 50 }} source={{ uri: event.image }} />
+      <Image
+        style={{ width: 100, height: 50 }}
+        source={{
+          uri: `${FileSystem.documentDirectory}${event.image.split('/').reverse()[0]}`,
+        }}
+      />
       <Text>{event.title}</Text>
     </View>
   </TouchableHighlight>
