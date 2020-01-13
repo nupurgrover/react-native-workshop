@@ -1,4 +1,3 @@
-import EventScreen from '../features/events/screens/EventScreen';
 import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
 import { Platform } from 'react-native';
@@ -39,7 +38,6 @@ HomeStack.path = '';
 const LinksStack = createStackNavigator(
   {
     Links: LinksScreen,
-    Event: EventScreen,
   },
   config
 );
