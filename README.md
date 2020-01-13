@@ -6,6 +6,19 @@
 
 [React Navigation docs](https://reactnavigation.org/docs/en/getting-started.html)
 
+## Running the app
+
+- open Expo in your phone and sign in to your account
+- in Terminal `expo login -u [username] -p [password]`
+
+Following this, when you run the dev app you'll see a link to it in your device's app
+
+- in Terminal `yarn start:rnd`.  This starts the React Native Debugger app.
+- in Terminal `yarn start`.  This starts expo.  Press `?` to see commands you can run.
+- In your phone's expo app go to the Projects tab and you should see a link to open your dev app.
+- When the app's loaded, shake your phone to get to the menu.  Enable Remote Debugging.  The app should reload with content in React Native Debugger.
+
+
 ## Your Task
 
 Render a list of events with an image and event name title from the available props.
