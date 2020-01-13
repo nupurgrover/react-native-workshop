@@ -8,30 +8,14 @@
 
 ## Your Task
 
-Render a list of events with an image and event name title from the available props.
+I've created an EventScreen component that renders an Event component.  The Event component uses the withNavigation HOC to provide the navigation prop, and in turn uses its getParam method to get the route's id param to pass to the selector to retrieve the event data from the redux store.
 
-When complete:
-- a loading state should be displayed if no events have loaded
-- the user should be able to pull to refresh to update the event list.  The loaded events should remain visible.
-- the user should be able to press on each event to get an alert with the event date
+You need to add a Route called Event to the LinksStack, and update the EventsListItem link to navigate to it, passing the event id as a parameter.
 
 Here are the hints:
 
-[FlatList](https://docs.expo.io/versions/v36.0.0/react-native/flatlist/) is a good choice to render the items, for reasons summarised in the [ScrollView](https://docs.expo.io/versions/v36.0.0/react-native/scrollview/) documentation
+The LinksStack is defined in MainTabNavigator.  
 
-[View](https://docs.expo.io/versions/v36.0.0/react-native/view/) is the equivalent of a `div` or `span`.  Many elements need to be wrapped in one to work
-
-[Image](https://docs.expo.io/versions/v36.0.0/react-native/image/) is self-explanatory
-
-[Text](https://docs.expo.io/versions/v36.0.0/react-native/text/) is a wrapper for text
-
-[TouchableHighlight](https://docs.expo.io/versions/v36.0.0/react-native/touchablehighlight/) can be used to provide an onPress handler around a group of components
-
-[Alert](https://docs.expo.io/versions/v36.0.0/react-native/alert/) is an API you can use to show the event date in response to the onPress
-
-In this case, Text has an onPress prop, but Image doesn't, so let's wrap them both and delegate the functionality to TouchableHighlight.
-
-FlatList will replace ScrollView, and we'll use FlatList's `onRefresh` and `refreshing` props to provide `Pull to Refresh` functionality.
-
+Try switching between `navigation.navigate()` and `navigation.push()` methods to see some interesting behaviour that demonstrates what Stacks are all about. https://reactnavigation.org/docs/en/navigation-prop.html#navigator-dependent-functions
 
 
