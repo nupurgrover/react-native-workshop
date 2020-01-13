@@ -7,7 +7,7 @@ import { loadEvents } from '../actions';
 import { withNavigation } from 'react-navigation';
 
 const EventsListItem = withNavigation(({ event, navigation }) => (
-  <TouchableHighlight onPress={() => navigation.navigate('Links')}>
+  <TouchableHighlight onPress={() => navigation.push('Event', { id: event.id })}>
     <View>
       <Image style={{ width: 100, height: 50 }} source={{ uri: event.image }} />
       <Text>{event.title}</Text>
