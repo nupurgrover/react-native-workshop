@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView, StyleSheet, Text } from 'react-native';
+import { View, StyleSheet, Text, FlatList, TouchableHighlight, Image, Alert } from 'react-native';
 import { selectEvents, selectEventsLoading, selectEventsRefreshing } from '../selectors';
 
 import { connect } from 'react-redux';
@@ -9,80 +9,35 @@ class EventsList extends Component {
   componentDidMount() {
     this.props.loadEvents();
   }
+
+  onEventTouch = date => {
+    console.log('item :', date);
+    Alert.alert(`Event is on ${date}`);
+  };
+
   render() {
-    console.log(this.props);
+    const { events } = this.props;
+    console.log('events :', events);
+
     return (
-      <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-        <Text>First</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>EventsList</Text>
-        <Text>Last</Text>
-      </ScrollView>
+      <FlatList
+        data={events}
+        refreshing={this.props.refreshing}
+        onRefresh={this.props.loadEvents}
+        renderItem={event => {
+          return (
+            <TouchableHighlight onPress={() => this.onEventTouch(event.item.date)}>
+              <View>
+                <Image style={{ width: 50, height: 50 }} source={{ uri: event.item.cover_image }} />
+                <Text>{event.item.title}</Text>
+              </View>
+            </TouchableHighlight>
+          );
+        }}
+        style={styles.container}
+        contentContainerStyle={styles.contentContainer}
+        keyExtractor={event => event.id}
+      ></FlatList>
     );
   }
 }
