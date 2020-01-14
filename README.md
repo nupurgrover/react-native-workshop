@@ -16,5 +16,7 @@ Here are the hints:
 
 The key in the [RouteConfig](https://reactnavigation.org/docs/en/stack-navigator.html#routeconfigs) is the route name which is in [MainTabNavigator](https://github.com/richardquaite/react-native-workshop/blob/5-navigation-intro/navigation/MainTabNavigator.js#L40)
 
+### Further reading
 
+https://docs.expo.io/versions/v36.0.0/workflow/linking/ describes how to generate links into your app using its scheme defined in app.json.
 
