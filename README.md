@@ -31,7 +31,7 @@ When complete:
 
 Here are the hints:
 
-[FlatList](https://docs.expo.io/versions/v36.0.0/react-native/flatlist/) is a good choice to render the items, for reasons summarised in the [ScrollView](https://docs.expo.io/versions/v36.0.0/react-native/scrollview/) documentation. However, React Navigation exports its own [Scrollables](https://reactnavigation.org/docs/en/scrollables.html) which work nicely with the Tab Navigator
+[FlatList](https://docs.expo.io/versions/v36.0.0/react-native/flatlist/) is a good choice to render the items, for reasons summarised in the [ScrollView](https://docs.expo.io/versions/v36.0.0/react-native/scrollview/) documentation. However, React Navigation exports its own [Scrollables](https://reactnavigation.org/docs/en/scrollables.html) which work nicely with the Tab Navigator, so I'd suggest using their `FlatList`.
 
 [View](https://docs.expo.io/versions/v36.0.0/react-native/view/) is the equivalent of a `div` or `span`. Many elements need to be wrapped in one to work
 
@@ -46,3 +46,5 @@ Here are the hints:
 In this case, Text has an onPress prop, but Image doesn't, so let's wrap them both and delegate the functionality to TouchableHighlight.
 
 FlatList will replace ScrollView, and we'll use FlatList's `onRefresh` and `refreshing` props to provide `Pull to Refresh` functionality.
+
+Start simple; a FlatList rendering an item that just has the event `title` (`<View><Text>{event.title}</Text></View>`) and go from there.
