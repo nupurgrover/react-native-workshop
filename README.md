@@ -18,7 +18,7 @@ For a bonus, we'll talk about how to set the title of the event screen to be the
 
 Here are the hints:
 
-Supported style props are included in the [Text docs](https://docs.expo.io/versions/v36.0.0/react-native/text/#style)
+Supported style props are included in the component's docs like [Text](https://docs.expo.io/versions/v36.0.0/react-native/text/#style) and [Image](https://docs.expo.io/versions/v36.0.0/react-native/image/#style)
 
 Use something like `style={{ flex: 1, height: 200 }}` for the image
 
