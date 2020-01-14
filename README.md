@@ -10,4 +10,4 @@
 
 We've built almost the best app the world has ever seen, however, when a user goes to an event screen, we want to take over the whole viewport so the user is more focussed on buying tickets.
 
-Make it so the event screen doesn't have the main tabs at the bottom of the screen.
+Make it so the event screen doesn't have the main tabs at the bottom.
