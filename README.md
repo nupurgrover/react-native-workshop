@@ -8,7 +8,7 @@
 
 ## Caching Demo
 
-Quick and dirty demo of caching images using [expo-file-system](https://docs.expo.io/versions/v36.0.0/sdk/filesystem)
+Quick and dirty demo of caching images using [expo-file-system](https://docs.expo.io/versions/v36.0.0/sdk/filesystem) to render the event screen image more quickly.
 
 ## Notes
 
